@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Startup</title>
+    <style>
+      /* Reset dan Font */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        transition: background 0.3s, color 0.3s;
+      }
+      body.dark {
+        background: #121212;
+        color: #f4f4f4;
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+      }
+      body.dark header {
+        background: rgba(18, 18, 18, 0.9);
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+      nav ul li {
+        margin: 0 1rem;
+      }
+      nav a {
+        text-decoration: none;
+        color: inherit;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+      nav a:hover {
+        color: #ff6b6b;
+      }
+      #theme-toggle {
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+
+      /* Section Umum */
+      section {
+        min-height: 100vh;
+        padding: 5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      h1,
+      h2 {
+        margin-bottom: 1rem;
+      }
+      p {
+        max-width: 600px;
+        margin-bottom: 2rem;
+      }
+
+      /* Home */
+      #home {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+      #home canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+      .cta-btn {
+        background: #ff6b6b;
+        color: white;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+      .cta-btn:hover {
+        transform: scale(1.1);
+      }
+
+      /* About */
+      #about {
+        background: #f4f4f4;
+      }
+      body.dark #about {
+        background: #1e1e1e;
+      }
+
+      /* Services */
+      #services {
+        background: white;
+      }
+      body.dark #services {
+        background: #121212;
+      }
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        width: 100%;
+        max-width: 800px;
+      }
+      .service {
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        transition: box-shadow 0.3s;
+      }
+      .service:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      .service img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      /* Contact */
+      #contact {
+        background: #667eea;
+        color: white;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+      }
+      input,
+      textarea {
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 5px;
+      }
+      button {
+        background: #ff6b6b;
+        color: white;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 1rem;
+        background: #333;
+        color: white;
+      }
+      body.dark footer {
+        background: #000;
+      }
+
+      /* Animasi */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      section {
+        animation: fadeIn 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Startup Business</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div id="theme-toggle">🌙</div>
+    </header>
+
+    <section id="home">
+      <canvas id="particle-canvas"></canvas>
+      <h1>Selamat Datang di Website Startup Business</h1>
+      <p>
+        Kami membantu bisnis startup Anda berkembang dengan solusi inovatif,
+        kreatif, dan bervariasi. Dari desain hingga pengembangan app, kami siap!
+      </p>
+      <button class="cta-btn" onclick="scrollToSection('about')">
+        Pelajari Lebih Lanjut
+      </button>
+    </section>
+
+    <section id="about">
+      <h2>Tentang Kami</h2>
+      <p>
+        Startup Kreatif didirikan untuk mendukung ide-ide baru. Kami percaya
+        bahwa kreativitas adalah kunci inovasi. Tim kami terdiri dari desainer,
+        developer, dan strategist yang siap membantu Anda.
+      </p>
+    </section>
+
+    <section id="services">
+      <h2>Layanan Kami</h2>
+      <div class="service-grid">
+        <div class="service">
+          <img
+            src="https://via.placeholder.com/250x150?text=Desain+Grafis"
+            alt="Desain Grafis"
+          />
+          <h3>Desain Grafis</h3>
+          <p>Logo, branding, dan materi visual yang menarik.</p>
+        </div>
+        <div class="service">
+          <img
+            src="https://via.placeholder.com/250x150?text=Web+Development"
+            alt="Web Development"
+          />
+          <h3>Web Development</h3>
+          <p>Website responsif dan aplikasi web modern.</p>
+        </div>
+        <div class="service">
+          <img
+            src="https://via.placeholder.com/250x150?text=App+Development"
+            alt="App Development"
+          />
+          <h3>App Development</h3>
+          <p>Aplikasi mobile untuk iOS dan Android.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Hubungi Kami</h2>
+      <form id="contact-form">
+        <input type="text" placeholder="Nama" required />
+        <input type="email" placeholder="Email" required />
+        <textarea placeholder="Pesan" rows="5" required></textarea>
+        <button type="submit">Kirim</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 Startup Kreatif. Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+      // Toggle Tema Gelap/Terang
+      const themeToggle = document.getElementById("theme-toggle");
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        themeToggle.textContent = document.body.classList.contains("dark")
+          ? "☀️"
+          : "🌙";
+      });
+
+      // Animasi Partikel di Home
+      const canvas = document.getElementById("particle-canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let particles = [];
+      for (let i = 0; i < 50; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 2,
+          vy: (Math.random() - 0.5) * 2,
+          size: Math.random() * 3 + 1,
+        });
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(255,255,255,0.5)";
+          ctx.fill();
+        });
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
+
+      // Smooth Scroll
+      function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Form Validation
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert("Terima kasih! Pesan Anda telah dikirim.");
+        });
+    </script>
+  </body>
+</html>
