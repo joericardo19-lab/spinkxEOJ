@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopHub - Toko Online Terpercaya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="logo-text">ShopHub</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">Beranda</a></li>
+                    <li><a href="#produk" class="nav-link">Produk</a></li>
+                    <li><a href="#tentang" class="nav-link">Tentang</a></li>
+                    <li><a href="#kontak" class="nav-link">Kontak</a></li>
+                </ul>
+                <div class="nav-right">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Cari produk...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <button class="cart-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Belanja Produk Berkualitas Terbaik</h1>
+                <p class="hero-subtitle">Ribuan produk pilihan dengan harga terbaik dan pengiriman cepat ke seluruh Indonesia</p>
+                <p class="hero-description">Kepuasan pelanggan adalah prioritas utama kami. Dapatkan penawaran spesial hari ini dan belanja dengan aman!</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="document.getElementById('produk').scrollIntoView({behavior: 'smooth'})">Belanja Sekarang</button>
+                    <button class="btn btn-secondary">Lihat Promo</button>
+                </div>
+            </div>
+            <div class="hero-animation">
+                <div class="animated-gradient"></div>
+                <div class="animated-shape shape1"></div>
+                <div class="animated-shape shape2"></div>
+                <div class="animated-shape shape3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keuntungan Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Keuntungan Belanja di ShopHub</h2>
+            <p class="section-subtitle">Nikmati pengalaman berbelanja yang terbaik dan terpercaya</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shipping-fast"></i></div>
+                    <h3>Pengiriman Cepat</h3>
+                    <p>Pengiriman express hingga ke tangan Anda dengan jaminan keamanan paket</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                    <h3>Pembayaran Aman</h3>
+                    <p>Berbagai metode pembayaran aman dengan enkripsi tingkat tinggi</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-undo-alt"></i></div>
+                    <h3>Garansi Uang Kembali</h3>
+                    <p>Garansi 100% uang kembali jika tidak puas dengan produk</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Customer Service 24/7</h3>
+                    <p>Tim customer service siap membantu Anda kapan saja</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-tag"></i></div>
+                    <h3>Harga Terbaik</h3>
+                    <p>Harga paling kompetitif dengan kualitas terjamin</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-star"></i></div>
+                    <h3>Produk Original</h3>
+                    <p>Semua produk 100% original dengan jaminan keaslian</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produk Section -->
+    <section id="produk" class="products">
+        <div class="container">
+            <h2 class="section-title">Produk-Produk Unggulan</h2>
+            <p class="section-subtitle">Koleksi produk terbaik pilihan kami untuk Anda</p>
+            
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="category-filter">
+                    <button class="filter-btn active" data-filter="all">Semua Produk</button>
+                    <button class="filter-btn" data-filter="elektronik">Elektronik</button>
+                    <button class="filter-btn" data-filter="fashion">Fashion</button>
+                    <button class="filter-btn" data-filter="rumah">Rumah & Perabotan</button>
+                    <button class="filter-btn" data-filter="olahraga">Olahraga</button>
+                </div>
+                <div class="sort-select">
+                    <select id="sortSelect">
+                        <option value="terbaru">Terbaru</option>
+                        <option value="harga-terendah">Harga Terendah</option>
+                        <option value="harga-tertinggi">Harga Tertinggi</option>
+                        <option value="rating">Rating Terbaik</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Produk Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Produk akan ditambahkan dengan JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Kategori Populer -->
+    <section class="popular-categories">
+        <div class="container">
+            <h2 class="section-title">Kategori Populer</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Elektronik</h3>
+                    <p>2,543 Produk</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-shirt"></i>
+                    </div>
+                    <h3>Fashion</h3>
+                    <p>5,124 Produk</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Rumah & Perabotan</h3>
+                    <p>3,876 Produk</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Olahraga</h3>
+                    <p>1,234 Produk</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Section -->
+    <section id="tentang" class="about">
+        <div class="container">
+            <h2 class="section-title">Tentang ShopHub</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Toko Online Terpercaya Indonesia</h3>
+                    <p>ShopHub adalah platform e-commerce terpercaya yang telah melayani jutaan pelanggan di seluruh Indonesia. Kami berkomitmen untuk memberikan pengalaman belanja online yang aman, nyaman, dan menyenangkan.</p>
+                    <p>Dengan lebih dari 50,000 produk berkualitas dari berbagai kategori, kami siap memenuhi semua kebutuhan Anda dengan harga yang kompetitif dan layanan terbaik.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h4>2.5M+</h4>
+                            <p>Pelanggan Aktif</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>50K+</h4>
+                            <p>Produk</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>100%</h4>
+                            <p>Terpercaya</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-visual">
+                        <div class="visual-element"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Kepuasan Pelanggan</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Pengalaman berbelanja terbaik! Produk sampai dengan cepat dan sesuai dengan deskripsi. Sangat puas dengan layanan ShopHub!"</p>
+                    <div class="testimonial-author">
+                        <h4>Siti Nurhaliza</h4>
+                        <p>Jakarta, Indonesia</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Harga yang kompetitif dan produk berkualitas. Customer service mereka sangat responsif dan membantu. Recommended!"</p>
+                    <div class="testimonial-author">
+                        <h4>Budi Santoso</h4>
+                        <p>Surabaya, Indonesia</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Belanja berkali-kali di ShopHub dan selalu puas. Proses checkout yang mudah dan berbagai pilihan pembayaran. Mantap!"</p>
+                    <div class="testimonial-author">
+                        <h4>Dewi Lestari</h4>
+                        <p>Bandung, Indonesia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Dapatkan Penawaran Spesial Hari Ini!</h2>
+            <p>Diskon hingga 50% untuk member baru dan gratis ongkos kirim ke seluruh Indonesia</p>
+            <button class="btn btn-primary btn-large">Daftar Sekarang</button>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Jl. Perdagangan No. 123, Jakarta 12345, Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>+62 21 9999 8888</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@shophub.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Jam Operasional</h4>
+                            <p>24 Jam, 7 Hari Seminggu</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nama Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subjek" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-shopping-bag"></i> ShopHub</h4>
+                    <p>Toko online terpercaya dengan jutaan pelanggan puas di seluruh Indonesia</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Kategori</h4>
+                    <ul>
+                        <li><a href="#">Elektronik</a></li>
+                        <li><a href="#">Fashion</a></li>
+                        <li><a href="#">Rumah</a></li>
+                        <li><a href="#">Olahraga</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Bantuan</h4>
+                    <ul>
+                        <li><a href="#">Cara Berbelanja</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Kondisi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Dapatkan penawaran eksklusif dan update produk terbaru</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email Anda" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShopHub. Semua hak dilindungi. | Toko Online Terpercaya Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Keranjang Belanja</h3>
+                <button class="close-btn" id="closeCartBtn">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Keranjang belanja Anda kosong</p>
+            </div>
+            <div class="cart-summary" id="cartSummary" style="display: none;">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">Rp 0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Ongkos Kirim:</span>
+                    <span id="shipping">Rp 0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">Rp 0</span>
+                </div>
+                <button class="btn btn-primary btn-block">Proses Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content-large">
+            <button class="close-btn" id="closeProductBtn">&times;</button>
+            <div class="product-detail" id="productDetail">
+                <!-- Detail produk akan ditambahkan dengan JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
